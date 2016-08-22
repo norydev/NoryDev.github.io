@@ -34,16 +34,23 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="http://www.norydev.com/img/ogimgs/default.jpg" />
   <meta name="twitter:card" content="summary">
+  <meta name="twitter:image:src" content="http://www.norydev.com/img/ogimgs/default.jpg">
   {% endif %}
 
   {% if page.title %}
   <meta property="og:title" content="{{ page.title }}" />
   <meta name="twitter:title" content="{{ page.title }}">
+  {% else %}
+  <meta property="og:title" content="{{ site.title }}" />
+  <meta name="twitter:title" content="{{ site.title }}">
   {% endif %}
 
   {% if page.excerpt %}
   <meta property="og:description" content="{{ page.excerpt | strip_html }}" />
   <meta name="twitter:description" content="{{ page.excerpt | strip_html }}">
+  {% else %}
+  <meta property="og:description" content="{{ site.description }}" />
+  <meta name="twitter:description" content="{{ site.description }}">
   {% endif %}
 
   <meta name="twitter:domain" content="norydev.com">
