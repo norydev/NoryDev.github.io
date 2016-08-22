@@ -1,0 +1,31 @@
+---
+layout: home
+---
+
+  <section class="writing" id="writing">
+
+    <div class="wrap">
+      <div class="section-heading group">
+        <h2>Writing</h2>
+      </div>
+
+      <div class="articles">
+        <ul class="article-index constrained">
+          {% for post in site.posts %}
+          <li class="article-item show article-{{post.date | date: "%Y"}}">
+            {% include readingtime.html %}
+            <a href="{{ post.url }}">
+              <h3 class="article-title">{{ post.title }}</h3>
+              <p class="article-date">{{ post.date | date: "%B %e, %Y" }} • {{ reading_time }} read</p>
+              <p class="article-excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' | strip_html | truncate: 150 }}</p>
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% include categories.html %}
+
+    </div>
+
+  </section>

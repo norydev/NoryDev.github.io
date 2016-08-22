@@ -1,0 +1,124 @@
+/* @group Layout Styles -------------------- */
+
+/* Site Nav */
+
+.site-nav {
+  position: absolute; z-index: 999;
+  top: 16px; right: 16px;
+  @media (max-width: 570px) { top: 4px; right: 2px; }
+
+  .nav-trigger {
+    padding: 8px;
+    display: block;
+    text-align: right;
+    line-height: 1;
+  }
+
+  .links {
+    list-style: none;
+    margin: 0;
+    text-align: right;
+    letter-spacing: -1px;
+
+    li {
+      display: inline-block;
+      padding: 0 15px 8px;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+/* Page Header */
+
+.page-header {
+  background-size: cover;
+  padding: 195px 0 65px;
+  color: $text_color;
+  @include bg-img-classes;
+  margin-bottom: 30px;
+
+  .intro-copy {
+
+    h1 {
+      font-weight: 800;
+      letter-spacing: -3px;
+      margin: 20px 0 0;
+      width: auto;
+      font-size: 60px;
+      line-height: 1;
+
+      @media (max-width: 570px) {
+        font-size: 38px;
+        margin-top: 40px !important;
+      }
+    }
+
+    .subhead {
+      font-size: 28px;
+      @include serif;
+      letter-spacing: -1px;
+      margin: 5px 0 0;
+    }
+
+    .description {
+      font-size: 24px;
+      margin: 10px 0 0;
+
+      a {
+        font-weight: 600;
+        letter-spacing: -1px;
+      }
+    }
+
+    a {
+      padding:0 3px; margin: 0 -3px;
+      @include border-radius(4px);
+      color: $text_color;
+
+      &:hover { background-color: white; }
+    }
+  }
+}
+
+
+/* Page Footer */
+
+.page-footer {
+  text-align: center;
+  border-top: 1px solid $border_color;
+  padding: 30px 0;
+  @include serif;
+  @media (max-width: 450px) { font-size: 14px; }
+
+  p { margin: 0; }
+}
+
+/* Utilities */
+
+.constrained {
+  max-width: 672px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading {
+  border-top: 3px solid $border_color;
+  border-bottom: 1px solid $border_color;
+  padding: 18px 0;
+  margin-bottom: 30px;
+
+  h2 {
+    font-weight: 800;
+    line-height: 1;
+    margin: 0;
+    font-size: 36px;
+    letter-spacing: -2px;
+    color: $heading_color;
+    @media (max-width: 450px) { font-size: 28px; }
+  }
+}
+
+/* @end Layout Styles */
