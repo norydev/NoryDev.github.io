@@ -4,6 +4,7 @@ title: Journey of a Trailblazer (1)
 subhead: A road to refactoring
 categories: code
 imgclass: trail
+redditlink: "https://www.reddit.com/r/ruby/comments/4z5yqv/journey_of_a_trailblazer_refactoring_a_real_rails/"
 ---
 
 I decided to refactor one of my Rails side projects with the [Trailblazer](http://trailblazer.to/) architecture. Why? The short version is, I'm looking for some standards and conventions to refactor my [day job](http://www.pisano.co)'s Rails API application. After reading a bit about Trailblazer and what it offers, I decided to try it on one of my side projects. I would refactor it to learn about the architecture and then decide if Trailblazer is a good fit for my professional application.

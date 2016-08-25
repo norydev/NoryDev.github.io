@@ -4,6 +4,7 @@ title: Journey of a Trailblazer (2)
 subhead: A road to refactoring
 categories: code
 imgclass: trail
+redditlink: "https://www.reddit.com/r/ruby/comments/4z5yqv/journey_of_a_trailblazer_refactoring_a_real_rails/"
 ---
 
 *This blog post is the part 2 of my refactoring experience with the [Trailblazer](http://trailblazer.to/) architecture. If you haven't already, you should read [part 1]({% post_url 2016-08-21-journey-of-a-trailblazer-part-1 %}) first.*
