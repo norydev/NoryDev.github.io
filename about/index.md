@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About me
-imgclass: trail
+imgclass: coffee
 ---
 
 <p class="lead" markdown="1">I’m Fabien Loup. I'm a Software Developer at Pisano where I deal with the Rails API and mess around the AngularJS client.</p>
