@@ -3,7 +3,7 @@ layout: blogpost
 title: PG MatViews for better performance in Rails 🚀
 subhead: Improving reporting performance in Rails with PostgreSQL Materialized Views
 excerpt: At Pisano, we sell a solution for businesses to collect feedback from their customers, engage with them in real time, and analyze results.
-categories: code performance
+categories: performance code
 imgclass: flowers
 date: 2017-05-12 10:00:00 +0300
 ---
