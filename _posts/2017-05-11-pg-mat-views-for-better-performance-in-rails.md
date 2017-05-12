@@ -6,6 +6,7 @@ excerpt: How we improved performance of our reporting endpoints as we acquired m
 categories: performance code
 imgclass: flowers
 date: 2017-05-12 10:00:00 +0300
+redditlink: "https://www.reddit.com/r/ruby/comments/6aq2ld/pg_matviews_for_better_performance_in_rails/"
 ---
 
 <div class="disclaimer">Thanks to my colleague <a href="https://www.github.com/omurturan">Ömür Turan</a> for implementing this with me, and reviewing this blogpost.</div>
