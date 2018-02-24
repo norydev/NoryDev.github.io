@@ -64,7 +64,7 @@ The idea is to limit the time spent in the Database. As we want to keep "any cus
 
 We considered using a non-relational Data storage to denormalize our Data. We picked MongoDB but after some trials, we evaluated the followings:
 
-👍 It is possible to denormalize any kind of Data
+👍 It is possible to denormalize any kind of Data.
 
 👎 It is complex to synchronize Data between PostgreSQL and MongoDB: it requires complex logic and background jobs. Those are prone to failures and timeout.
 
@@ -117,9 +117,10 @@ The model includes a `refresh` class method that we will update to have [concurr
 ```ruby
 class ReportFeedback < ApplicationRecord
   def self.refresh
-    Scenic.database.refresh_materialized_view(table_name,
-                                              concurrently: true,
-                                              cascade: false)
+    Scenic.database
+          .refresh_materialized_view(table_name,
+                                     concurrently: true,
+                                     cascade: false)
   end
 end
 ```
@@ -197,8 +198,9 @@ module Clockwork
   # [...]
   # Refresh Report Data every 5 minutes
   every 1.hour, "report.refresh",
-        at: ["**:00", "**:05", "**:10", "**:15", "**:20", "**:25",
-             "**:30", "**:35", "**:40", "**:45", "**:50", "**:55"],
+        at: ["**:00", "**:05", "**:10", "**:15", 
+             "**:20", "**:25", "**:30", "**:35", 
+             "**:40", "**:45", "**:50", "**:55"],
         tz: "UTC" do
     ReportRefreshWorker.perform_async(ReportFeedback)
   end
@@ -250,7 +252,7 @@ Comparison:
           real time::       12.1 i/s - 1.95x  slower
 ```
 
-The reports with the most complex queries have seen a 20x to 30x performance increase:
+The reports with the most complex queries, who had a lot of sub-queries, have seen a 20x to 30x performance increase:
 
 ```
 Warming up --------------------------------------

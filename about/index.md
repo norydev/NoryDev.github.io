@@ -8,8 +8,8 @@ imgclass: coffee
 
 Prior to that, I was a freelance software developer and mostly worked with Belgian team mates for Belgian customers. A long time ago, I graduated and then worked as an Electronics Engineer in my home country, Switzerland.
 
-I currently live with my wonderful wife in Istanbul, Turkey and work for [Pisano](http://www.pisano.co), a Turkish startup that builds a Customer Feedback Software.
+I currently live with my wonderful wife in Istanbul, Turkey and work for [Pisano](http://www.pisano.co), a Turkish company that builds a Customer Feedback Software.
 
 I like to [Hitchhike](https://www.somewherexpress.com) around Europe with my friends. If you are also a Hitchhiker or traveler and want a bed in Istanbul, contact me on [Trustroots](https://www.trustroots.org/profile/redfox).
 
-I'm norydev on the internets. As people ask me what “norydev” means: it's an anagram of my [hometown](https://en.wikipedia.org/wiki/Yverdon-les-Bains).
+I'm norydev on the Internets. As people ask me what “norydev” means: it's an anagram of my [hometown](https://en.wikipedia.org/wiki/Yverdon-les-Bains).

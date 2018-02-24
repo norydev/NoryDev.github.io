@@ -15,13 +15,13 @@ We organized one of these trips last September (2017), and a few weeks before, I
 
 [Hitchwiki](http://hitchwiki.org/en/Main_Page) is the ultimate resource for hitchhikers: there you can find valuable resources about anything hitchhiking related: country and city informations, tips, places to avoid, etc. 
 
-There is also a [map](http://hitchwiki.org/maps/) with crowd sourced, rated hitchhiking spots everywhere in the world. It's extremely helpful, for example in order to know where to start a new trip, to tell a driver where to drop you, or to find the closest good spot if you get drop in an unexpected place.
+There is also a [map](http://hitchwiki.org/maps/) with crowd sourced, rated hitchhiking spots everywhere in the world. It's extremely helpful, for example in order to know where to start a new trip, to tell a driver where to drop you, or to find the closest good spot if you get dropped in an unexpected place.
 
 ![Hitchwiki Spots Map](/img/posts/hitchwiki_map.jpg)
 
-But there is one problem for me with it: I usually don't have an Internet connection when I'm hitchhiking. Yes, the European Union has [ended roaming charges](http://europa.eu/rapid/press-release_MEMO-17-885_en.htm) but unfortunately, neither my home country Switzerland, nor my residence country Turkey are part of this deal.
+But there is one problem for me with this map: I usually don't have an Internet connection when I'm hitchhiking. Yes, the European Union has [ended roaming charges](http://europa.eu/rapid/press-release_MEMO-17-885_en.htm) but unfortunately, neither my home country Switzerland, nor my residence country Turkey are part of this deal.
 
-Because of that, I can not access the very helpful Hitchwiki spots whenever I leave Turkey or Switzerland without paying way too much money. That's a bummer. 😞
+Because of that, I cannot access the very helpful Hitchwiki spots whenever I leave Turkey or Switzerland without paying way too much money. That's a bummer. 😞
 
 ## MAPS.me is awesome
 
@@ -42,7 +42,7 @@ SPOILER: I made it and it's dead simple to use!
 
 <p style="text-align: center"><img src="/img/posts/hitchspots_me_demo.gif" alt="Hitchspots.me demo" /></p>
 
-It will get all the spots that are approximately 10km on each sides of your route. Bookmarks are colored according to their Hitchability rating (from Green — Very Good, to Red — Very Bad)
+It will get all the spots that are approximately 10km on each sides of your route. Bookmarks are colored according to their Hitchability rating (from Green — Very Good, to Red — Very Bad).
 
 If you click on a Bookmark, you will get the spot detail: city name, description by the author, average waiting time, and comments.
 
@@ -79,11 +79,11 @@ Hitchwiki's API <sup id="sup-2"><a href="#footnotes-2">2</a></sup> has basically
 
 In the end, I would ideally like my Bookmarks to contain more information than that, so I will need the payload from a spot detail. But for the first iteration, let's start with this minimal data. It is enough to pin a Bookmark on a map and color it according to it's rating.
 
-Hitchwiki's API has several mode for retrieving collections; by city, continent, country or coordinates-bounded area. As my main goal is to get the spots for a trip from point A to point B, my only option would be to use the "by area" endpoint.
+Hitchwiki's API has several modes for retrieving collections; by city, continent, country or coordinates-bounded area. As my main goal is to get the spots for a trip from point A to point B, my only option would be to use the "by area" endpoint.
 
 ### Calculating the areas for a trip
 
-After a bit of research, I found [OSRM](http://project-osrm.org/), which allows to calculate routes between two points. It's open source, and so far, I've been pretty satisfied for the results it gave me. 
+After a bit of research, I found [OSRM](http://project-osrm.org/), which allows to calculate routes between two points. It's open source, and so far, I've been pretty satisfied by the results it gave me. 
 
 When I started working on Hitchspots.me, it was possible to hit the API described in their [documentation](http://project-osrm.org/docs/v5.10.0/api/#general-options) but it seems no longer the case <sup id="sup-3"><a href="#footnotes-3">3</a></sup> (renders a 503 for all requests).
 
@@ -132,7 +132,7 @@ What remains is to render them as a MAPS.me Bookmarks collection file.
 
 This [article](https://support.maps.me/hc/en-us/articles/207895029-How-can-I-import-Bookmarks-) explains how to import a Bookmarks collection. We can see that MAPS.me accepts both KML and KMZ (zipped KML files). We will go with KML. 
 
-To figure out the MAPS.me format, I exported one of my boomarks collection, and it looks like this:
+To figure out the MAPS.me format, I exported one of my personal boomarks collection, and it looks like this:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -164,17 +164,17 @@ To figure out the MAPS.me format, I exported one of my boomarks collection, and 
 </kml>
 ```
 
-For each spot gotten from the Hitchwiki API, we can create a Placemark with coordinates, and styleURL containing a different color tag base on the rating.
+For each spot obtained from the Hitchwiki API, we can create a `Placemark` with coordinates, and `styleURL` containing a different color tag base on the rating.
 
 ### Making the web application
 
-If we pipe all these components together, we have a working first iteration. It is not perfect: if spots are updated on Hitchwiki, we won't get the updated version (as we are using a JSON file with the data instead of the real API), and we only get limited data for a spot, which is it's location and rating.
+If we pipe all these components together, we have a working first iteration. It is not perfect: if spots are updated on Hitchwiki, we won't get the updated version (as we are still using a JSON file with the data instead of the real API), and we only get limited data for a spot (it's location and rating).
 
 But that's a working alpha version, so I integrated this code in a new [Sinatra](http://sinatrarb.com/) application, made a simple form interface for the user to enter locations and [published](https://twitter.com/norydev/status/899204874054893568) it.
 
 ## Second iteration
 
-There are a few necessary improvements from here. First, the user doesn't get any feedback if their locations are real places. Second, it would have more value if the Bookmark description contained more data from the spot.
+There are a few necessary improvements from here. First, the user doesn't get any feedback if their locations are real places. Second, it would have more value if the Bookmark description contained more data for the spot.
 
 ### Places autocomplete and real time geolocation
 
@@ -206,13 +206,13 @@ It turns out, the data from Hitchwiki, at least some of it, is not utf-8 encoded
 
 ## Testing it out
 
-As I said in the introduction, all of this was triggered by the fact that we were going to go on a Hitchhiking trip with my friend. I finished the second iteration of Hitchspots.me just a few days before the trip, ready to be used.
+As I said in the introduction, all of this was triggered by the fact that we were going to go on a Hitchhiking trip with my friends. I finished the second iteration of Hitchspots.me just a few days before the trip, ready to be used.
 
 How did it go? Well [pretty good](https://twitter.com/norydev/status/910821946979438593)! 😄🏁🍾🎉
 
 ---
 
-[<span id="footnotes-1">1</span>] <a href="#sup-1">↑</a> If you have followed, there is also a feature to get all the spots for a country. I added it after the hitchhiking trip with my friends, for which I needed the "spots on a route" feature. It was, by the way painless to add, so I guess I can be proud of my architecture 💪.
+[<span id="footnotes-1">1</span>] <a href="#sup-1">↑</a> If you have followed, there is also a feature to get all the spots for a country. I added it after the hitchhiking trip with my friends, for which I needed the "spots on a route" feature. It was, by the way painless to add, so I guess I can be proud of my architecture. 💪
 
 [<span id="footnotes-2">2</span>] <a href="#sup-2">↑</a> There is no url to the documentation, you need to go to the [maps](http://hitchwiki.org/maps/) site and click API in the bottom right corner. 
 
