@@ -4,11 +4,11 @@ title: About me
 imgclass: coffee
 ---
 
-<p class="lead" markdown="1">I’m Fabien Loup. I'm a Software Developer at Pisano where I deal with the Rails API and mess around the AngularJS client.</p>
+<p class="lead" markdown="1">I’m Fabien Loup. I'm a Senior Ruby Developer at Silverfin.</p>
 
-Prior to that, I was a freelance software developer and mostly worked with Belgian team mates for Belgian customers. A long time ago, I graduated and then worked as an Electronics Engineer in my home country, Switzerland.
+Prior to that, I worked for Pisano, a software company in Istanbul. Before that I was a freelance software developer and mostly worked with Belgian team mates for Belgian customers. A long time ago, I graduated and then worked as an Electronics Engineer in my home country, Switzerland.
 
-I currently live with my wonderful wife in Istanbul, Turkey and work for [Pisano](http://www.pisano.co), a Turkish company that builds a Customer Feedback Software.
+I currently work for [Silverfin](https://www.silverfin.com/en), a company that provides many useful tools for Accounting firms. Since I work remotely, and my wife and I aren't sure about where to live, we are moving around Europe at the moment.
 
 I like to [Hitchhike](https://www.somewherexpress.com) around Europe with my friends. If you are also a Hitchhiker or traveler and want a bed in Istanbul, contact me on [Trustroots](https://www.trustroots.org/profile/redfox).
 
