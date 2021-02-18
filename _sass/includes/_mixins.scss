@@ -62,6 +62,7 @@
   &.flowers { background-image: url("../img/flowers.jpg"); }
   &.vw { background-image: url("../img/vw.jpg"); }
   &.coffee { background-image: url("../img/coffee.jpg"); }
+  &.work_from_home { background-image: url("../img/work_from_home.jpg"); }
 }
 
 @mixin border-radius($radius) {

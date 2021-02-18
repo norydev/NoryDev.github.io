@@ -5,6 +5,7 @@
   <link href='http://fonts.googleapis.com/css?family=Lora:400,700|Open+Sans:400,300,600,800,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
   {% if page.cssFile %}<link rel="stylesheet" type="text/css" href="/css/{{ cssFile }}" />{% endif %}
+  {% if page.canonical_url %}<link rel="canonical" href="{{ page.canonical_url }}" />{% endif %}
 
   <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
   <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
