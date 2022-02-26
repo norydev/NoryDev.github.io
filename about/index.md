@@ -4,9 +4,9 @@ title: About me
 imgclass: coffee
 ---
 
-<p class="lead" markdown="1">I’m Fabien Loup. I'm a Senior Software Developer.</p>
+<p class="lead" markdown="1">I’m Fabien Loup. I'm a Senior Software Engineer.</p>
 
-I currently work for [Vavato](https://vavato.com/en/homepage), an online auction house out of Belgium.
+I currently work for [Almanac](https://almanac.io), a platform for async collaboration.
 
 Prior to that, I worked for various companies, either as a full time employee or as a consultant, both on-site and remotely. A long time ago, I graduated and then worked as an Electronics Engineer in my home country, Switzerland.
 
