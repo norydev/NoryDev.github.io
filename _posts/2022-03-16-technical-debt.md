@@ -6,6 +6,7 @@ excerpt: I always struggled to explain technical debt to non technical people. I
 categories: code
 date: 2022-03-16 10:00:00 +0300
 imgclass: scarab
+published: false
 ---
 
 ### Day 0
