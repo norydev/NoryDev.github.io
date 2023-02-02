@@ -4,12 +4,14 @@ title: About me
 imgclass: coffee
 ---
 
-<p class="lead" markdown="1">I’m Fabien Loup. I'm a Senior Software Engineer.</p>
+<p class="lead" markdown="1">I’m Fabien Loup. I'm a Freelance Software Engineer.</p>
 
-I currently work for [Almanac](https://almanac.io), a platform for async collaboration.
+I can help your project, company, startup or just provide consulting for your ideas. I have worked with founders building their MVPs, tiny startups, growing startups, scale-ups and larger companies. I can write code, and I can also take a architectural/technical lead position, whatever the needs are.
 
-Prior to that, I worked for various companies, either as a full time employee or as a consultant, both on-site and remotely. A long time ago, I graduated and then worked as an Electronics Engineer in my home country, Switzerland.
+My strongest technical skills are in Ruby (on and off Rails) and relational databases - in particular PostgreSQL. I’m also proficient in frontend JavaScript/TypeScript and pretty up-to-date with the latest frameworks. Other than that, I have enough Ops skills to be dangerous, and can pretty much tag along on any project or technology. I have been part of many international teams, including in a lead position.
 
-I like to [Hitchhike](https://www.somewherexpress.com) around Europe with my friends. If you are also a Hitchhiker or traveler and want to meet up, contact me on [Trustroots](https://www.trustroots.org/profile/redfox).
+My style is definitely oriented towards Quality™ and long-term thinking, in all aspects of work (and life). That being said, I know where to make trade-offs and I will take pride in documenting every corner that has to be cut for reasons.
 
-I'm norydev on the Internets. As people ask me what “norydev” means: it's an anagram of my [hometown](https://en.wikipedia.org/wiki/Yverdon-les-Bains).
+I can work in English or French. I'm only considering fully remote contracts at the moment. If you are interested in working with me, contact me on <a href="https://www.linkedin.com/in/fabien-loup-b60431147" target="_blank">LinkedIn</a>.
+
+<small>What does “norydev” mean? It's an anagram of my [hometown](https://en.wikipedia.org/wiki/Yverdon-les-Bains).</small>
