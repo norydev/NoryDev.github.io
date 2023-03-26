@@ -14,10 +14,6 @@
 
     <footer class="content-footer">
 
-      <div class="share">
-        <a href="https://twitter.com/share" class="twitter-share-button" data-via="norydev" data-size="large" data-related="norydev">Tweet</a>
-      </div>
-
 {% if page.redditlink %}
       <p class="discussion-link"><a href="{{ page.redditlink }}">Discuss on Reddit &rarr;</a></p>
 {% endif %}
@@ -31,7 +27,5 @@
 {% include next-article.html %}
 
 {% include footer.html %}
-
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 {% include closing-tags.html %}
