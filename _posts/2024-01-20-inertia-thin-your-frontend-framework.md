@@ -1,6 +1,6 @@
 ---
 layout: blogpost
-title: Inertia - Thin your Frontend framework
+title: Inertia - Thin your frontend framework
 subhead: Something in-between a Single Page Application and server-side rendering
 excerpt: Do you want to use your frontend framework as a pure component library, responsible for presentation only? Then InertiaJS may help you.
 categories: code
