@@ -18,7 +18,7 @@
   <meta name="theme-color" content="#ffffff">
 
   <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}" />
-  <link href='http://www.norydev.com/feed.xml' rel='alternate' type='application/rss+xml'>
+  <link href='https://www.norydev.com/feed.xml' rel='alternate' type='application/rss+xml'>
   <meta name="description" content="{{ site.description }}" />
   <meta name="robots" content="index, follow" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,16 +27,16 @@
   <meta http-equiv="refresh" content="0;url={{ page.external_url }}" />
   {% endif %}
 
-  {% if page.categories %}
-  <meta property="og:image" content="http://www.norydev.com/img/ogimgs/{{ page.categories | first }}.jpg" />
+  {% if page.imgclass %}
+  <meta property="og:image" content="https://www.norydev.com/img/{{ page.imgclass }}.jpg" />
   <meta property="og:type" content="article" />
-  <meta name="twitter:image:src" content="http://www.norydev.com/img/ogimgs/{{ page.categories | first }}.jpg">
+  <meta name="twitter:image:src" content="https://www.norydev.com/img/{{ page.imgclass }}.jpg">
   <meta name="twitter:card" content="summary_large_image">
   {% else %}
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="http://www.norydev.com/img/ogimgs/default.jpg" />
+  <meta property="og:image" content="https://www.norydev.com/img/ogimgs/default.jpg" />
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:image:src" content="http://www.norydev.com/img/ogimgs/default.jpg">
+  <meta name="twitter:image:src" content="https://www.norydev.com/img/ogimgs/default.jpg">
   {% endif %}
 
   {% if page.title %}
