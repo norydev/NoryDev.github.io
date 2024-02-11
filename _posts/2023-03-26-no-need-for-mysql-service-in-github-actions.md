@@ -7,7 +7,7 @@ date: 2023-03-26 10:00:00 -0300
 imgclass: cherry-blossom
 ---
 
-It took me waaaaaayyy to long to understand this. For this reason, I'm writing this short blog post, so that hopefully, you, don't waste your own time on it.
+> It took me waaaaaayyy to long to understand this. For this reason, I'm writing this short blog post, so that hopefully, you, don't waste your own time on it.
 
 If you are using github actions, and you need a mysql database in your CI script, **you don't need to include a mysql service manually**.
 
@@ -15,7 +15,7 @@ What is this sorcery? Well, if your job runs on `ubuntu-latest`, and at least as
 
 I, of course, didn't know that, and it only took me 🤬 too many tries to figure it out.
 
-![42 tries to setup mysql](/img/posts/many_tries.jpg)
+<p style="text-align: center"><img src="/img/posts/many_tries.jpg" alt="42 tries to setup mysql" class="two-third" /></p>
 
 The only thing you have to not forget, is to manually start the mysql service. This could be easily overlooked because other services that you have to manually include (for example postgresql) do start their service automatically.
 
@@ -41,7 +41,7 @@ jobs:
         # started by default, so we first need to
         # start it.
         # Unlike with the postgres service for example,
-        # which allows to create a DB when decalring
+        # which allows to create a DB when declaring
         # the service,
         # here we need to manually create our mysql
         # database:
@@ -50,7 +50,7 @@ jobs:
           mysql -e 'CREATE DATABASE my_test_database;' -uroot -proot
 
         # In this ☝️ script, you probably need
-        # some DB setup setps (schema migrations for ex)
+        # some DB setup steps (schema migrations for ex)
         # as well
 
       # run step requiring the DB

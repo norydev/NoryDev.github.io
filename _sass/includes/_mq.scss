@@ -32,20 +32,24 @@
 
   .post-content {
     overflow: hidden;
-    font-size: 18px;
+    font-size: 1rem;
     margin: 0 auto;
     padding: 20px 0;
 
     h2 { margin: 40px 0 20px; }
 
-    .disclaimer { font-size: 18px; }
+    .disclaimer { font-size: 1rem; }
 
     div.highlight { padding: 10px 15px;
 
       pre code {
-        font-size: 14px;
+        font-size: 0.8rem;
         padding: 2px 4px;
       }
+    }
+
+    :not(pre) > code {
+      font-size: 0.9rem;
     }
   }
 }
@@ -80,7 +84,7 @@
 }
 
 @media screen and (max-width: 380px) {
-  .post-content { font-size: 16px; }
+  .post-content { font-size: 1rem; }
 }
 
 /* @end Media Queries */

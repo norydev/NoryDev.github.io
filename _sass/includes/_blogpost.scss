@@ -55,7 +55,7 @@
 .post-content {
   padding: 40px 0 80px;
   @include serif;
-  font-size: 20px;
+  font-size: 1.12rem;
 
   h1, h2, h3, h4, h5, h6, h7 {
     @include sans_bold;
@@ -107,10 +107,10 @@
   }
 
   :not(pre) > code {
-    font-size: 18px;
+    font-size: 1rem;
     line-height: 1.2;
     background-color: $tan;
-    padding: 4px 8px;
+    padding: 2px 4px;
     @include border-radius(5px);
   }
 
@@ -223,13 +223,14 @@
     @include border-radius(10px);
     padding: 20px 30px;
     border: 1px solid $gray_1;
-    font-size: 20px;
+    font-size: 1.12rem;
+    line-height: 1;
 
     pre { margin: 0;
 
       code {
         background-color: transparent;
-        font-size: 18px;
+        font-size: 0.9rem;
         line-height: 1.2;
         padding: 0;
       }
