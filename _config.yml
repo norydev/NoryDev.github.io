@@ -3,7 +3,7 @@ title: Fabien Loup
 description: >
   Hi, I am Fabien Loup. I'm a Software Developer and this is my blog.
 baseurl: ""
-url: "http://www.norydev.com"
+url: "https://www.norydev.com"
 
 # Build settings
 markdown: kramdown
