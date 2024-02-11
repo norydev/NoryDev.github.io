@@ -45,7 +45,7 @@ The first 2 commits of the [demo app](https://github.com/norydev/inertia-demo) i
 
 ### Step 1: Inertia setup
 
-The [inertia_rails](https://github.com/inertiajs/inertia-rails) gem has some pretty good "Getting started" documentation. In the demo app, we can see in commit 3 of the [demo app](https://github.com/norydev/inertia-demo) how it is setup:
+The [inertia_rails](https://github.com/inertiajs/inertia-rails) gem has some pretty good "Getting started" documentation. In the [demo app](https://github.com/norydev/inertia-demo), we can see in commit 3 how it is setup:
 
 - add the `inertia_rails` gem, the `@inertiajs/react`, `react` and `react-dom` npm packages
 - replace the rails `root` route + HomeController by the inertia root route.
@@ -268,7 +268,7 @@ Works perfectly!
 
 Now let's allow the user to create a new blog post. Basically, we need a simple form that can do a `POST` request. The main gotcha is the dealing with CSRF tokens. Let's build the feature and ignore CSRF protection for now.
 
-Inertia provides the `useForm` hook to help us here (full code in commit 5 of the [demo app](https://github.com/norydev/inertia-demo)):
+Inertia provides the `useForm` hook to help us here (full code in commit 6 of the [demo app](https://github.com/norydev/inertia-demo)):
 
 ```ruby
 # config/routes.rb
@@ -376,7 +376,7 @@ As we can see, a `X-XSRF-TOKEN` header is sent with the Request:
 
 ![Creating a post works immediately](/img/posts/inertia_csrf_token_request.jpg)
 
-Inertia form uses the [axios](https://github.com/axios/axios) library to do requests. Axios automatically checks for the existence of an `XSRF-TOKEN` cookie (which Rails provides). If it is present, Axios will then include the token in an `X-XSRF-TOKEN` header for any requests it makes. Mind the **X**SRF instead of **C**SRF, so by default, Rails would not recognize it (it recognizes `X-CSRF-TOKEN`. Now, if we inspect the code of the [inertia_rails](https://github.com/inertiajs/inertia-rails) gem, we can see [where the magic happens](https://github.com/inertiajs/inertia-rails/blob/0d3bc00721652a77936d17ef8e3760a109f227be/lib/inertia_rails/middleware.rb#L94-L96):
+Inertia form uses the [axios](https://github.com/axios/axios) library to perform requests. Axios automatically checks for the existence of an `XSRF-TOKEN` cookie (which Rails provides). If it is present, Axios will then include the token in an `X-XSRF-TOKEN` header for any requests it makes. Mind the **X**SRF instead of **C**SRF, so by default, Rails would not recognize it (it recognizes `X-CSRF-TOKEN`. Now, if we inspect the code of the [inertia_rails](https://github.com/inertiajs/inertia-rails) gem, we can see [where the magic happens](https://github.com/inertiajs/inertia-rails/blob/0d3bc00721652a77936d17ef8e3760a109f227be/lib/inertia_rails/middleware.rb#L94-L96):
 
 ```ruby
 def copy_xsrf_to_csrf!
@@ -386,7 +386,7 @@ end
 
 Excellent! We have CSRF protection setup automatically!
 
-This was a pretty simple `POST` scenario, but in practice, the backend would do all the business logic. For example, authentication, authorization, validation, etc. Let's add some simple validation to the Post model (full code in commit 6 of the [demo app](https://github.com/norydev/inertia-demo)):
+This was a pretty simple `POST` scenario, but in practice, the backend would do all the business logic. For example, authentication, authorization, validation, etc. Let's add some simple validation to the Post model (full code in commit 7 of the [demo app](https://github.com/norydev/inertia-demo)):
 
 ```ruby
 # app/models/post.rb
