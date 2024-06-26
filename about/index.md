@@ -1,7 +1,7 @@
 ---
 layout: about
 title: About me
-imgclass: coffee
+imgclass: banner
 ---
 
 <p class="lead" markdown="1">I’m Fabien Loup. I'm a Freelance Software Engineer.</p>

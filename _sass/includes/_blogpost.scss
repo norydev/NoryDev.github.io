@@ -67,7 +67,7 @@
     a {
       font-weight: 800;
       text-decoration: none;
-      color: $tan_4;
+      color: $primary_4;
     }
   }
 
@@ -87,9 +87,9 @@
   .right { float: right; margin-left: 20px; }
 
   .disclaimer {
-    color: $tan_4;
+    color: $primary_4;
     font-size: 1.05rem;
-    background-color: $tan;
+    background-color: $primary;
     padding: 20px;
     @include border-radius(5px);
     margin-bottom: 40px;
@@ -99,18 +99,18 @@
   del { text-decoration: line-through; color: $gray_2; }
 
   blockquote {
-    border-left: 6px solid $tan_2;
+    border-left: 6px solid $primary_2;
     margin-left: 0;
     margin-right: 0;
     padding: 5px 40px;
-    background-color: $tan;
+    background-color: $primary;
     @include border-radius(0 10px 10px 0);
   }
 
   :not(pre) > code {
     font-size: 1rem;
     line-height: 1.2;
-    background-color: $tan;
+    background-color: $primary;
     padding: 2px 4px;
     @include border-radius(5px);
   }

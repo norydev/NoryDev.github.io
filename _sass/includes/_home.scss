@@ -1,30 +1,39 @@
 /* @group Home styles -------------------- */
 
 .page-home {
+  .site-nav a {
+    color: $gray_2;
+  }
 
   .page-header {
-    background-color: $tan;
-    background-image: none;
+    color: $gray_2;
+    box-shadow: initial;
     padding: 0;
     overflow: hidden;
+
     @media (max-width: 990px) { height: auto; }
 
     .my-avatar {
-      width: 55.664%;
+      border: 6px solid $gray_2;
+      border-radius: 50%;
+      overflow: hidden;
+
+      width: 400px;
       float: right;
       position: relative;
-      bottom: -5px;
-      margin-top: 40px;
-      margin-bottom: -10px;
+      margin-top: 80px;
+      margin-bottom: 80px;
+      margin-right: 80px;
+
       @media (max-width: 990px) {
-        max-width: 550px;
+        max-width: 450px;
         width: 100%;
-        margin: 40px auto -120px;
+        margin: 40px auto;
         float: none;
       }
     }
 
-    .me-photo { max-width: 100%; }
+    .me-photo { max-width: 100%; display: block; height: auto; }
 
     .intro-copy {
       width: 410px;
@@ -52,8 +61,8 @@
 
       h2 {
         font-weight: 300;
-        border-top: 3px solid $border_color;
-        border-bottom: 1px solid $border_color;
+        border-top: 3px solid $gray_3;
+        border-bottom: 1px solid $gray_3;
         padding: 10px 0;
         font-size: 1.46875rem;
         margin: 10px 0;
@@ -67,12 +76,23 @@
         font-size: 16px;
         line-height: 1.5;
         @include serif;
+
+        a {
+          color: $gray_2;
+          letter-spacing: initial;
+
+          &:hover {
+            background-color: transparent;
+            text-decoration: underline;
+          }
+        }
       }
     }
 
     .social-media-links { margin-top: 20px; }
 
     .icon-link {
+      color: $gray_2;
       display: inline-block;
       text-decoration: none;
       margin-right: 6px;
@@ -130,17 +150,17 @@
       }
 
       &:hover {
-        background-color: $tan;
+        background-color: $primary;
         opacity: .6;
       }
 
     }
 
     .showing {
-      background-color: $tan;
+      background-color: $primary;
       cursor: default;
 
-      &:hover { background-color: $tan; }
+      &:hover { background-color: $primary; }
 
     }
 
@@ -170,13 +190,13 @@
       .external-link-icon-svg {
         margin-left: 5px;
 
-        path { fill: $tan_3; }
+        path { fill: $primary_3; }
       }
     }
 
     .article-date {
       font-size: 16px;
-      color: $tan_3;
+      color: $primary_3;
       margin: 0;
       font-weight: 400;
       @media (max-width: 450px) { font-size: 14px; }

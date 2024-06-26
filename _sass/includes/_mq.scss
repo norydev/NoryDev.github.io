@@ -68,7 +68,10 @@
       .description { font-size: 14px; }
     }
 
-    .my-avatar.home { margin: 20px auto -80px; }
+    .my-avatar.home {
+      max-width: 70%;
+      margin: 20px auto 40px;
+    }
   }
 
   .page-header { padding-bottom: 5px; }

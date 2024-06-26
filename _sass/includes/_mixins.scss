@@ -52,7 +52,7 @@
   background-image: url("../img/mountains.jpg");
   background-position: center top;
   background-repeat: no-repeat;
-  background-color: $tan;
+  background-color: $primary;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -63,7 +63,7 @@
   &.flowers { background-image: url("../img/flowers.jpg"); }
   &.vw { background-image: url("../img/vw.jpg"); }
   &.cherry-blossom { background-image: url("../img/cherry-blossom.jpg"); }
-  &.coffee { background-image: url("../img/coffee.jpg"); }
+  &.banner { background-image: url("../img/banner.jpg"); }
   &.work_from_home { background-image: url("../img/work_from_home.jpg"); }
   &.scarab { background-image: url("../img/scarab.jpg"); }
   &.cargo { background-image: url("../img/cargo.jpg"); }
@@ -84,7 +84,7 @@
   line-height: 1.25;
   letter-spacing: -1px;
   outline: none;
-  background-color: $tan;
+  background-color: $primary;
   text-decoration: none;
 }
 

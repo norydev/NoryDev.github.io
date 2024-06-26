@@ -20,16 +20,18 @@ $magenta:         #b400ff;    // magenta
 $purple:          #7653c1;    // purple
 $purple_l:        #f3f2ff;    // light purple
 $green:           #24ac00;    // green
+$yellow:          #F5EB56;    // yellow
 
 // v2 colors
 
 $black:           #333;
-$tan:             #d3e7fa;
-$tan_2:           #a1b5c7;
-$tan_3:           #728596;
-$tan_4:           #455867;
+$almost_black:    #141514;
+$primary:         #d3e7fa;
+$primary_2:       #a1b5c7;
+$primary_3:       #728596;
+$primary_4:       #455867;
 $text_color:      $black;
-$border_color:    $tan_2;
+$border_color:    $primary_2;
 $heading_color:   $black;
 
 /* @end Variables */

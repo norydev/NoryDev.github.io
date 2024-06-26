@@ -1,11 +1,16 @@
 /* @group About page styles -------------------- */
 
 .page-about {
+  .site-nav a {
+    color: $gray_2;
+  }
 
   .page-header {
     padding: 100px 0;
     background-size: cover;
     background-color: #c9c4c1;
+    color: $gray_2;
+    box-shadow: initial;
 
     .my-avatar { display: none; }
 
