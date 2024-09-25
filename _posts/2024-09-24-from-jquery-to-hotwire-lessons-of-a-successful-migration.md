@@ -10,7 +10,7 @@ imgclass: robindesfermes
 
 I joined [Robin des Fermes](https://www.robindesfermes.ch/) in January 2024, as sole developer, working 2.5 days per week with them. The main priorities they gave me were mostly Backend oriented. Frontend work wasn't a priority at that time, but soon enough there were features that would involve some Frontend work.
 
-Robin des Fermes is also a bootstrapped<sup id="sup-1"><a href="#footnotes-1">1</a></sup> company where the resources are scarce: 2.5 days of dev time per week, and we can't waste any money or time on non essentials. This definitely influenced some of the decisions I made when it comes to Frontend work.
+Robin des Fermes is a bootstrapped<sup id="sup-1"><a href="#footnotes-1">1</a></sup> company where the resources are scarce: 2.5 days of dev time per week, and we can't waste any money or time on non essentials. This definitely influenced some of the decisions I made when it comes to Frontend work.
 
 Now this story is about a successful migration from the original code to Hotwire. So let's dive into how it happened.
 
@@ -26,7 +26,7 @@ My mantra was: if I'm going to add any JavaScript code, I won't add any more jQu
 
 That lead me to introduce Stimulus in the app on February 7th 2024, in a PR where I needed simple Tab toggler, which I built with a Stimulus controller.
 
-Stimulus is very (completely?) unobtrusive, so it's really safe to introduce it without worrying about old code still working. It is also very self-contained: you don't need Turbo to have Stimulus work, it just works fine as a standalone library. So go nuts with Stimulus.
+Stimulus is completely unobtrusive, so it's really safe to introduce it without worrying about old code still working. It is also very self-contained: you don't need Turbo to have Stimulus work, it just works fine as a standalone library. So go nuts with Stimulus.
 
 ### Stimulus tip for migrations: have a global controller
 
@@ -71,23 +71,35 @@ First of all, this is not even a tip, it's a critical step if you aren't on a Gr
 
 Unless you want to migrate your whole Frontend at once (which you don't), then you definitely don't want Turbo Drive enabled until you are sure nothing is in its way (and lots will get in its way). I didn't find the docs very clear in that regards, here is how you do it:
 
-In your entrypoint file (application.\[js\|ts\] most likely), add this line right after importing turbo:
+In your entrypoint file (application.\[js\|ts\] most likely), add these lines right after importing turbo:
 
 ```javascript
 require("@hotwired/turbo-rails"); // by default Turbo Drive is enabled globally
 Turbo.session.drive = false; // Do not enable Turbo Drive globally
+Turbo.session.history.stop(); // Disable history cache
+Turbo.setFormMode("optin");
 ```
 
-And now, whenever you want to use Turbo, you need the surrounding HTML element to have the `data-turbo="true"` attribute. You'll be able to remove all of those whenever you enable it globally bur for now it's required:
+And now, whenever you want to use Turbo, you need the surrounding HTML element to have the `data-turbo="true"` attribute. You'll be able to remove all of those whenever you enable it globally but for now it's required:
 
 ```html
 <div>No turbo here</div>
 <div data-turbo="true">
-  <turbo-frame id="my-frame">I can use turbo there</turbo-frame>
+  <a href="/something" data-turbo-frame="my-frame">I can target a Turbo Frame from here</a>
+  <form data-turbo-stream="true" method="post" action="/stuff">
+    I can also do form requests with Turbo Streams
+  </form>
 </div>
 ```
 
-Why do you need to deactivate Turbo Drive globally? Well Tubo in general (Drive, Frames, Streams) - but Turbo Drive in particular - is an extra obtrusive framework that gets in the way real fast.
+Note: there is an exception to this rule. Turbo frame elements do not need explicit `data-turbo="true"`. It's the only Turbo element which will automatically cause Turbo Drive features to become enabled for itself and all of its content. So this will work:
+
+```html
+<div>No turbo here</div>
+<turbo-frame id="my-frame">I can use turbo there</turbo-frame>
+```
+
+Why do you need to deactivate Turbo Drive globally? Well Turbo in general (Drive, Frames, Streams) - but Turbo Drive in particular - is an extra obtrusive framework that gets in the way real fast.
 
 The main issue I faced is having a lot of code being in a `DOMContentLoaded` event listener callback function. In fact, most of my JavaScript execution was following that pattern - as I said earlier, this used to be very common in jQuery times:
 
@@ -202,7 +214,7 @@ Well now we understand how that makes sense. So what are your alternatives?
 ```
 Well I guess you know not to do that<sup id="sup-3"><a href="#footnotes-3">3</a></sup>.
 
-2) You can replace the `DOMContentLoaded` event listener with a `turbo:load` event listener, or is it `turbo:before-stream-render`? Again, that will soon become a nightmare, don't do that (also, depending on what you want to do, it won't even work).
+2) You can replace the `DOMContentLoaded` event listener with a `turbo:load` event listener, or is it `turbo:before-stream-render`? Again, that will quickly become a nightmare, don't do that (also, depending on what you want to do, it won't even work).
 
 3) You can add a Stimulus controller. That's basically what Hotwire wants you to do. Then it becomes cleaner:
 
@@ -270,37 +282,36 @@ Then it will swap the original frame with that payload, and the final result is:
 
 If the rendered HTML does not contain `<turbo-frame id="my-frame">[...]</turbo-frame>` you will get the infamous `Content missing` error.
 
-So if the `GET /resources/3` request returns a full HTML page - which is what your app was doing before you added Turbo, so that's still probably what it does after you added it - then you want to break out of the frame. There are several ways to do it. For example, you can have a [global meta tag](https://turbo.hotwired.dev/handbook/frames#%E2%80%9Cbreaking-out%E2%80%9D-from-a-frame). That's not very convenient if you wanna be more granular.
+So if the `GET /resources/3` request returns a full HTML page - which is what your app was doing before you added Turbo, that's still probably what it does after you added it - then you want to break out of the frame. There are several ways to do it.
 
-You can _try_ to have a top `target="_top"` in the frame like this:
+One option is to have a [global meta tag](https://turbo.hotwired.dev/handbook/frames#%E2%80%9Cbreaking-out%E2%80%9D-from-a-frame). That's not very convenient if you want to be more granular.
 
-```html
-<turbo-frame id="my-frame" target="_top">
-  <a href="/resources/3">Show resource</a>
-</turbo-frame>
-```
-
-It may work in some cases, but I've been bitten by it, so I wouldn't recommend. Details are unimportant but let's say that these 2 snippets do **NOT** have the exact same behavior:
+Another option is, you can add a `target="_top"` to the frame itself like this:
 
 ```html
 <turbo-frame id="my-frame" target="_top">
   <a href="/resources/3">Show resource</a>
 </turbo-frame>
 ```
-is not the same as
+
+This will work, now the link will target the `_top` frame. But beware: if you have any Turbo Streams request made from within the frame, they also target the `_top` frame by default. So now you need to update those if they were intended to target the frame:
+
 ```html
-<turbo-frame id="my-frame">
-  <a href="/resources/3" data-turbo-frame="_top">Show resource</a>
+<turbo-frame id="my-frame" target="_top">
+  <a href="/resources/3">Show resource</a>
+  <form action="/resources" method="post" data-turbo-stream="true" data-turbo-frame="my-frame">
+    Some form component
+  </form>
 </turbo-frame>
 ```
 
-because Turbo Streams responses are impacted by the `target="_top"` attribute.
+What you gain by not having to update your links, you lose by having to update your forms. Depending on your use-case it's an interesting trade-off. Note that in the case of form response targeting the `_top` frame when they intended to target a specific frame, you will not get any `"Content Missing"` error, it will just look like nothing happened.
 
-Another option is, you can go update all the links within the frame - and that's the solution I would recommend - which might be a pain depending on the complexity of the view: you may have multiple partials, maybe some of them are conditional, etc.
+The last option is, you can go update all the links within the frame - and that's the solution I would recommend - which might be a pain depending on the complexity of the view: you may have multiple partials, maybe some of them are conditional, etc.
 
 The safest way is to add `data-turbo="false"` on the links: this escapes from Turbo Drive and will render the HTML response as a full page load. This is the safest, although on the long run, you will want Turbo enabled, so that's not awesome.
 
-The other option is to add `data-turbo-frame="_top"` to every link: this will target the `_top` frame (which is added by Turbo itself) and swap it with the HTML response, which will look like a full page render to the user. But it is actually a full page swap, so now you need to make sure that this view (`GET resources/3`) does not contain any HTML element that is listened on from a `DOMContentLoaded` event listener callback function. Which may or may not be easy to identify and refactor.
+The alternative is to add `data-turbo-frame="_top"` to every link: this will target the `_top` frame (which is added by Turbo itself) and swap it with the HTML response, which will look like a full page render to the user. But it is actually a full page swap, so now you need to make sure that this view (`GET resources/3`) does not contain any HTML element that is listened on from a `DOMContentLoaded` event listener callback function. Which may or may not be easy to identify and refactor.
 
 ### 5. Beware of the libraries (in particular those you don't expect - like Bootstrap)
 
