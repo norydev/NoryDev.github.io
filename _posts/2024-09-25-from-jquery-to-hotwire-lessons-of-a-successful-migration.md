@@ -4,7 +4,7 @@ title: From jQuery to Hotwire
 subhead: Lessons of a successful migration
 excerpt: Some lessons I learned successfully migrating Robin des Ferme's jQuery + Rails UJS Frontend to Hotwire, and a few tips & tricks if you are attempting the same feat.
 categories: code
-date: 2024-09-24 22:50:00 +0300
+date: 2024-09-25 17:20:00 +0200
 imgclass: robindesfermes
 ---
 
