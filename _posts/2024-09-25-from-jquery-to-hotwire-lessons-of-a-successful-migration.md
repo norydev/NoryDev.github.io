@@ -63,7 +63,7 @@ At the end of the migration, I still have a few actions in that global main cont
 
 ## Turbo is a different beast altogether
 
-Contrary to Stimulus, Turbo is _very_ obtrusive and will get in the way real fast. Mostly when refactoring old views, but not only. So let's get into the main lessons I learned introducing Turbo in an existing project and eventually refactoring old views with to allow global Turbo Drive. And I'll add a few tips and tricks if you intend such a migration yourself.
+Contrary to Stimulus, Turbo is _very_ obtrusive and will get in the way real fast. Mostly when refactoring old views, but not only. So let's get into the main lessons I learned introducing Turbo in an existing project and eventually refactoring old views to allow global Turbo Drive. And I'll add a few tips and tricks if you intend such a migration yourself.
 
 ### 1. Deactivate Turbo drive globally
 
