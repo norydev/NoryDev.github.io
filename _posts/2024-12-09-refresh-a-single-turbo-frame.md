@@ -2,7 +2,7 @@
 layout: blogpost
 title: Refresh a single Turbo frame
 subhead: When you want to reload from the backend, but not the whole page
-excerpt: "Turbo stream's \"refresh\" action is great as it allows refreshing user dependent views. The downside? The whole page is refreshed. Sometimes all you need is one frame to be refreshed."
+excerpt: "Turbo stream's refresh action is great as it allows refreshing user dependent views. The downside? The whole page is refreshed. Sometimes all you need is one frame to be refreshed."
 categories: code
 date: 2024-12-12 10:45:00 +0200
 imgclass: fresh
